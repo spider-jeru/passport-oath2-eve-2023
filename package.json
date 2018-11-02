@@ -28,7 +28,7 @@
     "oauth2"
   ],
   "author": "Marcus Stade <marcus@stade.se>, Ilya Kantor <iliakan@gmail.com>, Alexis Gruet <alexis.gruet@kroknet.com>, Jared Hanson",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/mstade/passport-google-oauth2/issues"
   },
