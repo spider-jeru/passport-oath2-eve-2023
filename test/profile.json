@@ -1,27 +1,9 @@
-{
- "kind": "plus#person",
- "gender": "male",
- "emails": [
-  {
-   "value": "fred.example@gmail.com",
-   "type": "account"
-  }
- ],
- "objectType": "person",
- "id": "000000000000000000000",
- "displayName": "Fred Example",
- "name": {
-  "givenName": "Fred",
-  "familyName": "Example"
- },
- "url": "https://plus.google.com/000000000000000000000",
- "image": {
-  "url": "https://domain.com/image.jpg",
-  "isDefault": true
- },
- "isPlusUser": true,
- "language": "en",
- "circledByCount": 0,
- "verified": false,
- "domain": "gmail.com"
-}
+{ "sub": "000000000000000000000",
+  "name": "Fred Example",
+  "given_name": "Fred",
+  "family_name": "Example",
+  "picture":
+   "https://lh5.googleusercontent.com/000000000000000000000.jpg",
+  "email": "fred.example@gmail.com",
+  "email_verified": true,
+  "locale": "en" }
