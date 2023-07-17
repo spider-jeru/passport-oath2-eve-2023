@@ -1,13 +1,14 @@
 {
-  "name": "passport-google-oauth2",
-  "version": "0.2.0",
-  "description": "Passport strategy for Google OAuth 2.0",
+  "name": "passport-eveonline-oauth2-2023",
+  "version": "0.2.1",
+  "description": "Passport strategy for EVE Online SSO OAuth 2.0",
   "main": "./lib/oauth2.js",
   "directories": {
     "example": "examples",
     "test": "test"
   },
   "dependencies": {
+    "jsonwebtoken": "^9.0.1",
     "passport-oauth2": "^1.1.2"
   },
   "devDependencies": {
@@ -21,13 +22,17 @@
     "url": "git://github.com/mstade/passport-google-oauth2.git"
   },
   "keywords": [
+    "passport",
+    "eve",
+    "eveonline",
+    "sso",
     "auth",
-    "google",
-    "google+",
-    "passportjs",
-    "oauth2"
+    "oauth2",
+    "authentication",
+    "identity",
+    "single sign on"
   ],
-  "author": "Marcus Stade <marcus@stade.se>, Ilya Kantor <iliakan@gmail.com>, Alexis Gruet <alexis.gruet@kroknet.com>, Jared Hanson",
+  "author": "Google staff: Marcus Stade <marcus@stade.se>, Ilya Kantor <iliakan@gmail.com>, Alexis Gruet <alexis.gruet@kroknet.com>, Jared Hanson. Non-Google: Spider Jerusalem",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mstade/passport-google-oauth2/issues"

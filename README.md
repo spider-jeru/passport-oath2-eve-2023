@@ -1,40 +1,44 @@
-# Passport strategy for Google OAuth 2.0
+# Passport strategy for EVE Online SSO OAuth 2.0
 
-[Passport](http://passportjs.org/) strategies for authenticating with [Google](http://www.google.com/)
+[Passport](http://passportjs.org/) strategies for authenticating with [EVE Online](http://www.eveonline.com/)
 using ONLY OAuth 2.0.
 
-This module lets you authenticate using Google in your Node.js applications.
-By plugging into Passport, Google authentication can be easily and
+This module lets you authenticate using EVE Online SSO in your Node.js applications.
+By plugging into Passport, EVE Online SSO authentication can be easily and
 unobtrusively integrated into any application or framework that supports
 [Connect](http://www.senchalabs.org/connect/)-style middleware, including
 [Express](http://expressjs.com/).
 
 ## Install
 
-    $ npm install passport-google-oauth2
+    $ npm install passport-eveonline-oauth2-2023
 
 ## Usage of OAuth 2.0
 
+#### Create an Application
+
+Before using `passport-eveonline-sso`, you must register your application with
+[EVE Online Developers site](https://developers.eveonline.com/)
+
+You will also need to configure an Endpoint redirect URI (`callbackURL`) and scopes your application has access to.
+
 #### Configure Strategy
 
-The Google OAuth 2.0 authentication strategy authenticates users using a Google
-account and OAuth 2.0 tokens.  The strategy requires a `verify` callback, which
-accepts these credentials and calls `done` providing a user, as well as
-`options` specifying a client ID, client secret, and callback URL.
+The EVE Online SSO authentication strategy authenticates users using a EVE Online
+account and OAuth 2.0 tokens.  The clientID and clientSecret obtained when creating an application are supplied as options when creating the strategy.  The strategy also requires a `verify` callback, which receives the access token and optional refresh token, as well as `profile` which contains the authenticated user's profile.  The `verify` callback must call `cb` providing a user to
+complete authentication.
 
-```Javascript
-var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
-
-passport.use(new GoogleStrategy({
-    clientID:     GOOGLE_CLIENT_ID,
-    clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://yourdomain:3000/auth/google/callback",
-    passReqToCallback   : true
+```js
+passport.use(new EveOnlineSsoStrategy({
+    clientID: EVEONLINE_CLIENT_ID,
+    clientSecret: EVEONLINE_CLIENT_SECRET,
+    callbackURL: 'http://localhost:3000/auth/eveonline'
+    scope: ''
   },
-  function(request, accessToken, refreshToken, profile, done) {
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      return done(err, user);
-    });
+  function(accessToken, refreshToken, profile, cb) {
+    // We have a new authenticated session, you can now store and/or use the accessToken and refreshToken to call EVE Swagger Interface (ESI) end points.
+
+    return done(null, profile);
   }
 ));
 ```
@@ -50,51 +54,27 @@ Also both sign-in button + callbackURL has to be share the same url, otherwise t
 
 #### Authenticate Requests
 
-Use `passport.authenticate()`, specifying the `'google'` strategy, to
+Use `passport.authenticate()`, specifying the `'eveonline-sso'` strategy, to
 authenticate requests.
 
 For example, as route middleware in an [Express](http://expressjs.com/)
 application:
 
 ```Javascript
-app.get('/auth/google',
-  passport.authenticate('google', { scope:
-  	[ 'email', 'profile' ] }
-));
+app.get('/auth/eveonline',
+  passport.authenticate('eveonline-sso'));
 
-app.get( '/auth/google/callback',
-	passport.authenticate( 'google', {
-		successRedirect: '/auth/google/success',
-		failureRedirect: '/auth/google/failure'
+app.get( '/auth/eveonline/callback',
+	passport.authenticate( 'eveonline-sso', {
+		successRedirect: '/auth/eveonline/success',
+		failureRedirect: '/auth/eveonline/failure'
 }));
 ```
-
-#### What you will get in profile response ?
-
-```
-   provider         always set to `google`
-   id
-   name
-   displayName
-   birthday
-   relationship
-   isPerson
-   isPlusUser
-   placesLived
-   language
-   emails
-   gender
-   picture
-   coverPhoto
-```
-
-## Examples
-
-For a complete, working example, refer to the [OAuth 2.0 example](example).
 
 ## Credits
 
   - [Jared Hanson](http://github.com/jaredhanson)
+  - [Johnny Splunk](http://github.com/johnnysplunk)
 
 ## License
 
