@@ -1,6 +1,6 @@
 {
   "name": "passport-eveonline-oauth2-2023",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Passport strategy for EVE Online SSO OAuth 2.0",
   "main": "./lib/oauth2.js",
   "directories": {
