@@ -75,9 +75,9 @@ app.get( '/auth/eveonline/callback',
 
   - [Jared Hanson](http://github.com/jaredhanson)
   - [Johnny Splunk](http://github.com/johnnysplunk)
+  - [Spider Jerusalem](https://github.com/spider-jeru)
 
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2012-2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>
