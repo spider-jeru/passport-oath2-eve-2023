@@ -17,7 +17,7 @@ unobtrusively integrated into any application or framework that supports
 
 #### Create an Application
 
-Before using `passport-eveonline-sso`, you must register your application with
+Before using `passport-eveonline-oauth2-2023`, you must register your application with
 [EVE Online Developers site](https://developers.eveonline.com/)
 
 You will also need to configure an Endpoint redirect URI (`callbackURL`) and scopes your application has access to.
@@ -46,9 +46,6 @@ passport.use(new EveOnlineSsoStrategy({
 #### Note about Local environment
 
 Avoid usage of Private IP, otherwise you will get the device_id device_name issue for Private IP during authentication.
-
-A workaround consist to set up thru the google cloud console a fully qualified domain name such as http://mydomain:3000/ for the callback
-then edit your /etc/hosts on your computer and/or vm to point on your private IP.
 
 Also both sign-in button + callbackURL has to be share the same url, otherwise two cookies will be created and it will lead to lost your session
 
